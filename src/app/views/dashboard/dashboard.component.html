@@ -1,0 +1,40 @@
+<mat-card>
+  <mat-card-content class="dashboard-info">
+    <mat-card-title>Employee Dashboard</mat-card-title>
+    <div class="dashboard-info-wrapper">
+      <div class="dashboard-info-item">
+        Total Employees: {{ totalEmployees }}
+      </div>
+      <div class="dashboard-info-item">
+        Total Clocked Time:
+        {{ dashboardService.totalClockedTime$ | async }} hours
+      </div>
+      <div class="dashboard-info-item">
+        Total Regular Pay:
+        {{ dashboardService.totalRegularPay$ | async | currency }}
+      </div>
+      <div class="dashboard-info-item">
+        Total Overtime Pay:
+        {{ dashboardService.totalOvertimePay$ | async | currency }}
+      </div>
+    </div>
+  </mat-card-content>
+  <ng-container *ngIf="dashboardService.employees$ | async as employees">
+    <app-employee-details-table
+      *ngIf="employees.length"
+      (selectionChanged)="onSelectionChange($event)"
+      [employeeData]="dashboardService.employees$ | async"
+      [shiftsData]="shifts"
+    ></app-employee-details-table>
+  </ng-container>
+</mat-card>
+<mat-card-actions>
+  <button
+    mat-raised-button
+    color="primary"
+    [disabled]="selectedRows.length === 0"
+    (click)="onBulkEdit()"
+  >
+    Bulk Edit
+  </button>
+</mat-card-actions>

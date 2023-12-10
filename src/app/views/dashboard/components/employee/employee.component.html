@@ -1,0 +1,31 @@
+<mat-card-content class="employee-wrapper">
+  <mat-form-field appearance="fill">
+    <mat-label>Employee name</mat-label>
+    <input
+      (input)="onValueChange()"
+      matInput
+      placeholder="Enter Name"
+      [(ngModel)]="localEmployeeData.name"
+    />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Employee hourly rate</mat-label>
+    <input
+      (change)="onValueChange()"
+      matInput
+      placeholder="Enter Hourly Rate"
+      type="number"
+      [(ngModel)]="localEmployeeData.hourlyRate"
+    />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Employee overtime hourly rate</mat-label>
+    <input
+      (change)="onValueChange()"
+      matInput
+      placeholder="Enter Overtime Hourly Rate"
+      type="number"
+      [(ngModel)]="localEmployeeData.hourlyRateOvertime"
+    />
+  </mat-form-field>
+</mat-card-content>

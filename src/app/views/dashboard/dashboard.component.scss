@@ -1,0 +1,12 @@
+.dashboard-info {
+  margin-bottom: 50px;
+  &-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px;
+    .info-item {
+      font-size: 16px;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+<div mat-dialog-content>
+  <div *ngFor="let item of localData">
+    <mat-card class="details-wrapper">
+      <app-employee
+        *ngIf="item"
+        [employeeData]="item"
+        (employeeDataChange)="changeEmployeeData($event)"
+      ></app-employee>
+      <app-shifts-table
+        [shiftsData]="item.shifts"
+        (shiftChanged)="changeShiftData($event)"
+      ></app-shifts-table>
+    </mat-card>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="null">Cancel</button>
+  <button mat-button (click)="saveChanges()">Save</button>
+</div>
