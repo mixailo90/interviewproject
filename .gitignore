@@ -35,6 +35,3 @@ testem.log
 /e2e/*.js
 /e2e/*.map
 
-# angular files
-/angular.json
-/.angular/cache
